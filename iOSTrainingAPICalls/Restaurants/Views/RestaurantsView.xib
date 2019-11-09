@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ysy-Do-DVR" customClass="RestaurantsView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EUJ-6l-mY7">
+                    <rect key="frame" x="16" y="20" width="343" height="647"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="jNG-Wi-QnU">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Cd2-i7-Zzo">
+                    <rect key="frame" x="177.5" y="333.5" width="20" height="20"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Ifq-D3-TqK" firstAttribute="trailing" secondItem="EUJ-6l-mY7" secondAttribute="trailing" constant="16" id="3PE-IV-qyR"/>
+                <constraint firstItem="EUJ-6l-mY7" firstAttribute="leading" secondItem="Ifq-D3-TqK" secondAttribute="leading" constant="16" id="NTy-PP-mME"/>
+                <constraint firstItem="Cd2-i7-Zzo" firstAttribute="centerY" secondItem="Ifq-D3-TqK" secondAttribute="centerY" id="RrX-Cb-4lD"/>
+                <constraint firstItem="Cd2-i7-Zzo" firstAttribute="centerX" secondItem="Ifq-D3-TqK" secondAttribute="centerX" id="p5x-13-a0h"/>
+                <constraint firstItem="Ifq-D3-TqK" firstAttribute="bottom" secondItem="EUJ-6l-mY7" secondAttribute="bottom" id="rhx-Ve-DrQ"/>
+                <constraint firstItem="EUJ-6l-mY7" firstAttribute="top" secondItem="Ifq-D3-TqK" secondAttribute="top" id="tac-Y6-Rrb"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Ifq-D3-TqK"/>
+            <connections>
+                <outlet property="restaurantsActivityIndicator" destination="Cd2-i7-Zzo" id="kli-e1-Ofz"/>
+                <outlet property="restaurantsCollectionView" destination="EUJ-6l-mY7" id="Aqg-13-Z6T"/>
+            </connections>
+            <point key="canvasLocation" x="3" y="145"/>
+        </view>
+    </objects>
+</document>
