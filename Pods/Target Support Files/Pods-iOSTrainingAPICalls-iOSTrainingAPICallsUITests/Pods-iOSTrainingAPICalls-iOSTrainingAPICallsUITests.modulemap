@@ -1,6 +1,0 @@
-framework module Pods_iOSTrainingAPICalls_iOSTrainingAPICallsUITests {
-  umbrella header "Pods-iOSTrainingAPICalls-iOSTrainingAPICallsUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
