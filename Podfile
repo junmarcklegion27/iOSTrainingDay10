@@ -7,6 +7,8 @@ target 'iOSTrainingAPICalls' do
 
   # Pods for iOSTrainingAPICalls
     pod 'AFNetworking', '~> 3.0'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
 
   target 'iOSTrainingAPICallsTests' do
     inherit! :search_paths

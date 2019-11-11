@@ -9,6 +9,7 @@
 #import "RestaurantsViewController.h"
 #import "../Views/Cells/RestaurantViewCell.h"
 #import "../../RestaurantDetails/Controllers/RestaurantDetailsViewController.h"
+#import "../../MapView/Controllers/MapViewController.h"
 
 @interface RestaurantsViewController ()
 
@@ -63,6 +64,8 @@
             restaurant.restaurantCuisines = responseCategory[@"cuisines"];
             restaurant.restaurantTiming = responseCategory[@"timings"];
             restaurant.restaurantAverageCostForTwo = [responseCategory[@"average_cost_for_two"] floatValue];
+            restaurant.restaurantLatitude = location[@"latitude"];
+            restaurant.restaurantLongitude = location[@"longitude"];
             [self.restaurants addObject:restaurant];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -128,6 +131,9 @@
         RestaurantDetailsViewController *restaurantDetailsVc = [segue destinationViewController];
         restaurantDetailsVc.restaurant = self.restaurant;
         NSLog(@"Object: %@,", self.restaurant.restaurantName);
+    } else if ([segue.identifier isEqualToString:@"restaurantToMap"]) {
+        MapViewController *mapVc = [segue destinationViewController];
+        mapVc.restaurants = self.restaurants;
     }
 }
 

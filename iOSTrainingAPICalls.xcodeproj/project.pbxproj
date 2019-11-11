@@ -25,6 +25,10 @@
 		A7046E962376A92B0016B2C4 /* RestaurantDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046E952376A92B0016B2C4 /* RestaurantDetailsViewController.m */; };
 		A7046E992376A9BA0016B2C4 /* RestaurantDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046E982376A9BA0016B2C4 /* RestaurantDetailsView.m */; };
 		A7046E9B2376A9D40016B2C4 /* RestaurantDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7046E9A2376A9D40016B2C4 /* RestaurantDetailsView.xib */; };
+		A7046E9E23793FB60016B2C4 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7046E9D23793FB60016B2C4 /* MapView.storyboard */; };
+		A7046EA32379444A0016B2C4 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EA22379444A0016B2C4 /* MapView.m */; };
+		A7046EA5237944D20016B2C4 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7046EA4237944D20016B2C4 /* MapView.xib */; };
+		A7046EA8237944F80016B2C4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EA7237944F80016B2C4 /* MapViewController.m */; };
 		A7F678C7237515A000425CC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F678C6237515A000425CC7 /* AppDelegate.m */; };
 		A7F678CD237515A000425CC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F678CB237515A000425CC7 /* Main.storyboard */; };
 		A7F678D0237515A000425CC7 /* iOSTrainingAPICalls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7F678CE237515A000425CC7 /* iOSTrainingAPICalls.xcdatamodeld */; };
@@ -83,6 +87,12 @@
 		A7046E972376A9BA0016B2C4 /* RestaurantDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailsView.h; sourceTree = "<group>"; };
 		A7046E982376A9BA0016B2C4 /* RestaurantDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailsView.m; sourceTree = "<group>"; };
 		A7046E9A2376A9D40016B2C4 /* RestaurantDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantDetailsView.xib; sourceTree = "<group>"; };
+		A7046E9D23793FB60016B2C4 /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
+		A7046EA12379444A0016B2C4 /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		A7046EA22379444A0016B2C4 /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		A7046EA4237944D20016B2C4 /* MapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
+		A7046EA6237944F80016B2C4 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		A7046EA7237944F80016B2C4 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		A7F678C2237515A000425CC7 /* iOSTrainingAPICalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTrainingAPICalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F678C5237515A000425CC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A7F678C6237515A000425CC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -281,6 +291,35 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A7046E9C23793F570016B2C4 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				A7046E9D23793FB60016B2C4 /* MapView.storyboard */,
+				A7046E9F237943D20016B2C4 /* Views */,
+				A7046EA0237944130016B2C4 /* Controllers */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		A7046E9F237943D20016B2C4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7046EA12379444A0016B2C4 /* MapView.h */,
+				A7046EA22379444A0016B2C4 /* MapView.m */,
+				A7046EA4237944D20016B2C4 /* MapView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7046EA0237944130016B2C4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A7046EA6237944F80016B2C4 /* MapViewController.h */,
+				A7046EA7237944F80016B2C4 /* MapViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		A7F678B9237515A000425CC7 = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +347,7 @@
 			children = (
 				A7046E61237518700016B2C4 /* Home */,
 				A7046E77237671B80016B2C4 /* Restaurants */,
+				A7046E9C23793F570016B2C4 /* MapView */,
 				A7046E912376A8750016B2C4 /* RestaurantDetails */,
 				A7F678C5237515A000425CC7 /* AppDelegate.h */,
 				A7F678C6237515A000425CC7 /* AppDelegate.m */,
@@ -351,6 +391,7 @@
 				A7F678BF237515A000425CC7 /* Frameworks */,
 				A7F678C0237515A000425CC7 /* Resources */,
 				863C236FEC0F32E1EE0FBDE0 /* [CP] Embed Pods Frameworks */,
+				720154EF77D90E2236AA2A3C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -389,6 +430,7 @@
 				A7F678E5237515A100425CC7 /* Frameworks */,
 				A7F678E6237515A100425CC7 /* Resources */,
 				3061F4F81766218F9E5532BF /* [CP] Embed Pods Frameworks */,
+				2DD95AB56E8F53738AF2EBA4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -452,9 +494,11 @@
 				A7F678D2237515A100425CC7 /* Assets.xcassets in Resources */,
 				A7046E7323751AB00016B2C4 /* HomeTableViewCell.xib in Resources */,
 				A7046E9B2376A9D40016B2C4 /* RestaurantDetailsView.xib in Resources */,
+				A7046E9E23793FB60016B2C4 /* MapView.storyboard in Resources */,
 				A7F678CD237515A000425CC7 /* Main.storyboard in Resources */,
 				A7046E8D2376819B0016B2C4 /* RestaurantsView.xib in Resources */,
 				A7046E8B237673240016B2C4 /* RestaurantViewCell.xib in Resources */,
+				A7046EA5237944D20016B2C4 /* MapView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +539,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DD95AB56E8F53738AF2EBA4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSTrainingAPICalls-iOSTrainingAPICallsUITests/Pods-iOSTrainingAPICalls-iOSTrainingAPICallsUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSTrainingAPICalls-iOSTrainingAPICallsUITests/Pods-iOSTrainingAPICalls-iOSTrainingAPICallsUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSTrainingAPICalls-iOSTrainingAPICallsUITests/Pods-iOSTrainingAPICalls-iOSTrainingAPICallsUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3061F4F81766218F9E5532BF /* [CP] Embed Pods Frameworks */ = {
@@ -558,6 +619,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		720154EF77D90E2236AA2A3C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSTrainingAPICalls/Pods-iOSTrainingAPICalls-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSTrainingAPICalls/Pods-iOSTrainingAPICalls-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSTrainingAPICalls/Pods-iOSTrainingAPICalls-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		863C236FEC0F32E1EE0FBDE0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -593,6 +671,8 @@
 				A7046E7223751AB00016B2C4 /* HomeTableViewCell.m in Sources */,
 				A7F678D8237515A100425CC7 /* main.m in Sources */,
 				A7046E90237684AA0016B2C4 /* Restaurants.m in Sources */,
+				A7046EA32379444A0016B2C4 /* MapView.m in Sources */,
+				A7046EA8237944F80016B2C4 /* MapViewController.m in Sources */,
 				A7046E6D237518E50016B2C4 /* HomeViewController.m in Sources */,
 				A7F678C7237515A000425CC7 /* AppDelegate.m in Sources */,
 			);
