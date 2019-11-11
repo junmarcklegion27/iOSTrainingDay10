@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "../../Restaurants/Models/Restaurants.h"
 
 @interface MapViewController ()
 
@@ -32,7 +33,7 @@ const float zoom = 15.0f;
 - (void)initLocationServices {
     if (_locationManager == nil) {
         _locationManager = [[CLLocationManager alloc] init];
-        _locationManager.delegate = self;
+//        _locationManager.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         [_locationManager startUpdatingLocation];
     }
@@ -42,31 +43,43 @@ const float zoom = 15.0f;
     GMSCameraPosition *camera = [GMSMutableCameraPosition cameraWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude zoom:zoom];
     self.mapView.googleMapView.camera = camera;
 }
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"%@", error);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation *clLocation = [locations lastObject];
-    [self centerToLocation:clLocation];
-}
+//
+//- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+//    NSLog(@"%@", error);
+//}
+//
+//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+//    CLLocation *clLocation = [locations lastObject];
+//    [self centerToLocation:clLocation];
+//}
 
 - (void)settingUpMap {
-    CLLocationCoordinate2D carolinaMallLocation;
-    carolinaMallLocation.latitude = 14.2190864;
-    carolinaMallLocation.longitude = 121.8449656;
+    CLLocationCoordinate2D restaurantLocation;
+    int count = 0;
+    for (Restaurants *restaurant in self.restaurants) {
+        CLLocationCoordinate2D restoLocation;
+        restoLocation.latitude = [restaurant.restaurantLatitude floatValue];
+        restoLocation.longitude = [restaurant.restaurantLongitude floatValue];
+        
+        if (count == 0) {
+            restaurantLocation = restoLocation;
+        }
+        
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = restoLocation;
+        marker.title = restaurant.restaurantName;
+        marker.snippet = @"Snippet";
+        marker.map = self.mapView.googleMapView;
+        count ++;
+    }
+
     
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:carolinaMallLocation.latitude longitude:carolinaMallLocation.longitude];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:restaurantLocation.latitude longitude:restaurantLocation.longitude];
     [self centerToLocation:location];
     self.mapView.googleMapView.myLocationEnabled = YES;
-    
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = carolinaMallLocation;
-    marker.title = @"Workplace";
-    marker.snippet = @"Snippet";
-    marker.map = self.mapView.googleMapView;
 }
+
+//- (void)
 /*
 #pragma mark - Navigation
 

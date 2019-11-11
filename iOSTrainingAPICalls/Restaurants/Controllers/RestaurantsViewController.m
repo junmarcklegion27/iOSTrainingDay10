@@ -132,7 +132,8 @@
         restaurantDetailsVc.restaurant = self.restaurant;
         NSLog(@"Object: %@,", self.restaurant.restaurantName);
     } else if ([segue.identifier isEqualToString:@"restaurantToMap"]) {
-        MapViewController *mapVc = [segue destinationViewController];
+        UINavigationController *navVc = [segue destinationViewController];
+        MapViewController *mapVc = navVc.viewControllers[0];
         mapVc.restaurants = self.restaurants;
     }
 }
