@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "../../Restaurants/Models/Restaurants.h"
+#import "../../RestaurantDetails/Controllers/RestaurantDetailsViewController.h"
 
 @interface MapViewController ()
 
@@ -16,6 +17,9 @@
 @implementation MapViewController
 
 const float zoom = 15.0f;
+- (IBAction)tappedBackBarItem:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,14 +30,13 @@ const float zoom = 15.0f;
     UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     [self.view addSubview:self.mapView];
     [self initLocationServices];
-    [self settingUpMap];
-    NSLog(@"%@", self.restaurants);
-}
+    [self settingUpMap];}
 
 - (void)initLocationServices {
     if (_locationManager == nil) {
         _locationManager = [[CLLocationManager alloc] init];
 //        _locationManager.delegate = self;
+        self.mapView.googleMapView.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         [_locationManager startUpdatingLocation];
     }
@@ -53,6 +56,18 @@ const float zoom = 15.0f;
 //    [self centerToLocation:clLocation];
 //}
 
+- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
+    for (Restaurants *restaurantObj in self.restaurants) {
+        if ([restaurantObj.restaurantId isEqualToString:marker.snippet]) {
+            self.restaurant = restaurantObj;
+            NSLog(@"Marker tapped");
+            [self performSegueWithIdentifier:@"mapToDetails" sender:nil];
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (void)settingUpMap {
     CLLocationCoordinate2D restaurantLocation;
     int count = 0;
@@ -68,8 +83,9 @@ const float zoom = 15.0f;
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = restoLocation;
         marker.title = restaurant.restaurantName;
-        marker.snippet = @"Snippet";
+        marker.snippet = restaurant.restaurantId;
         marker.map = self.mapView.googleMapView;
+        marker.tappable = YES;
         count ++;
     }
 
@@ -79,15 +95,18 @@ const float zoom = 15.0f;
     self.mapView.googleMapView.myLocationEnabled = YES;
 }
 
-//- (void)
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"mapToDetails"]) {
+        UINavigationController *navVc = [segue destinationViewController];
+        NSLog(@"%@", navVc.viewControllers[1]);
+        
+        RestaurantDetailsViewController *restaurantDetailsVc = navVc.viewControllers[2];
+        restaurantDetailsVc.restaurant = self.restaurant;
+
+//        RestaurantDetailsViewController *restaurantDetailsVc = [segue destinationViewController];
+//        restaurantDetailsVc.restaurant = self.restaurant;
+//        NSLog(@"Object: %@,", self.restaurant.restaurantName);
+    }
 }
-*/
 
 @end

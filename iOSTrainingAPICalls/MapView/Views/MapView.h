@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapView : UIView
+@interface MapView : UIView<GMSMapViewDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *googleMapView;
 
 @end

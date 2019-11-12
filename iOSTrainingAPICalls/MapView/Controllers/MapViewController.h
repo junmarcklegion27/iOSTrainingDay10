@@ -10,14 +10,16 @@
 #import "../Views/MapView.h"
 #import <CoreLocation/CoreLocation.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "../../Restaurants/Models/Restaurants.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapViewController : UIViewController<CLLocationManagerDelegate>
+@interface MapViewController : UIViewController<CLLocationManagerDelegate, GMSMapViewDelegate>
 
 @property (strong, nonatomic) MapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *restaurants;
+@property (strong, nonatomic) Restaurants *restaurant;
 
 @end
 
