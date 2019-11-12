@@ -61,7 +61,8 @@ const float zoom = 15.0f;
         if ([restaurantObj.restaurantId isEqualToString:marker.snippet]) {
             self.restaurant = restaurantObj;
             NSLog(@"Marker tapped");
-            [self performSegueWithIdentifier:@"mapToDetails" sender:nil];
+//            [self performSegueWithIdentifier:@"mapToDetails" sender:nil];
+            [self presentRestaurantDetails:restaurantObj];
             return YES;
         }
     }
@@ -95,18 +96,27 @@ const float zoom = 15.0f;
     self.mapView.googleMapView.myLocationEnabled = YES;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"mapToDetails"]) {
-        UINavigationController *navVc = [segue destinationViewController];
-        NSLog(@"%@", navVc.viewControllers[1]);
-        
-        RestaurantDetailsViewController *restaurantDetailsVc = navVc.viewControllers[2];
-        restaurantDetailsVc.restaurant = self.restaurant;
-
-//        RestaurantDetailsViewController *restaurantDetailsVc = [segue destinationViewController];
-//        restaurantDetailsVc.restaurant = self.restaurant;
-//        NSLog(@"Object: %@,", self.restaurant.restaurantName);
-    }
+- (void)presentRestaurantDetails:(Restaurants *) restaurant {
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+    RestaurantDetailsViewController *detailsVC = (RestaurantDetailsViewController*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"restaurantDetails"];
+    
+    detailsVC.restaurant = restaurant;
+    
+    [self presentViewController:detailsVC animated:YES completion:nil];
 }
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"mapToDetails"]) {
+//        UINavigationController *navVc = [segue destinationViewController];
+//        NSLog(@"%@", navVc.viewControllers[1]);
+//
+//        RestaurantDetailsViewController *restaurantDetailsVc = navVc.viewControllers[2];
+//        restaurantDetailsVc.restaurant = self.restaurant;
+//
+////        RestaurantDetailsViewController *restaurantDetailsVc = [segue destinationViewController];
+////        restaurantDetailsVc.restaurant = self.restaurant;
+////        NSLog(@"Object: %@,", self.restaurant.restaurantName);
+//    }
+//}
 
 @end

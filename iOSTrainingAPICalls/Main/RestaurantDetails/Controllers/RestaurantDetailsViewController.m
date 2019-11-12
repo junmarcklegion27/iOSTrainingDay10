@@ -24,6 +24,7 @@
     [self.view addSubview:self.restaurantsDetailsView];
     self.navigationItem.title = @"Restaurant";
     [self getRestaurant];
+    
 }
 
 - (void)getRestaurant {self.restaurantsDetailsView.restaurantNameLabel.text = self.restaurant.restaurantName;

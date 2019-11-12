@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="pWz-b0-kZp" customClass="LoginView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BlC-2c-QJd">
+                    <rect key="frame" x="50" y="363" width="314" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqx-GH-gEq">
+                    <rect key="frame" x="50" y="413" width="314" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Sign-in"/>
+                    <connections>
+                        <action selector="onClickedSignin:" destination="pWz-b0-kZp" eventType="touchUpInside" id="ymN-Tx-wJE"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="BlC-2c-QJd" firstAttribute="centerX" secondItem="jbM-Wu-ZXX" secondAttribute="centerX" id="2ar-yZ-55r"/>
+                <constraint firstItem="jbM-Wu-ZXX" firstAttribute="trailing" secondItem="BlC-2c-QJd" secondAttribute="trailing" constant="50" id="EyP-BW-pRw"/>
+                <constraint firstItem="Rqx-GH-gEq" firstAttribute="top" secondItem="BlC-2c-QJd" secondAttribute="bottom" constant="20" id="MPE-Pn-nB3"/>
+                <constraint firstItem="Rqx-GH-gEq" firstAttribute="centerX" secondItem="jbM-Wu-ZXX" secondAttribute="centerX" id="QjZ-1u-Vg4"/>
+                <constraint firstItem="BlC-2c-QJd" firstAttribute="centerY" secondItem="jbM-Wu-ZXX" secondAttribute="centerY" id="Ucl-o6-7ZN"/>
+                <constraint firstItem="Rqx-GH-gEq" firstAttribute="trailing" secondItem="BlC-2c-QJd" secondAttribute="trailing" id="lid-IP-uwl"/>
+                <constraint firstItem="BlC-2c-QJd" firstAttribute="leading" secondItem="jbM-Wu-ZXX" secondAttribute="leading" constant="50" id="sY0-WZ-27Y"/>
+                <constraint firstItem="Rqx-GH-gEq" firstAttribute="leading" secondItem="BlC-2c-QJd" secondAttribute="leading" id="vA4-Gk-Tjd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="jbM-Wu-ZXX"/>
+            <connections>
+                <outlet property="loginButton" destination="Rqx-GH-gEq" id="d9j-jm-fyl"/>
+                <outlet property="loginTextField" destination="BlC-2c-QJd" id="Sat-zw-XbH"/>
+            </connections>
+        </view>
+    </objects>
+</document>
