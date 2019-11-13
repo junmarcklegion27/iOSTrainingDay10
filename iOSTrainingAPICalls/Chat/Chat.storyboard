@@ -47,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="122" y="117"/>
         </scene>
-        <!--Channels View Controller-->
+        <!--Title-->
         <scene sceneID="DSb-nG-ZJy">
             <objects>
                 <viewController id="A8n-kt-bFt" customClass="ChannelsViewController" sceneMemberID="viewController">
@@ -69,6 +69,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rhm-qe-VJu"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="pCi-d9-cfE">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="bq5-5c-shZ">
+                            <connections>
+                                <action selector="onClickedAdd:" destination="A8n-kt-bFt" id="8P9-bT-9Gb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="channelsUIView" destination="jRg-Tc-oef" id="vJn-Rw-7Kk"/>
                     </connections>

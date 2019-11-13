@@ -41,6 +41,10 @@
 		A7046ED0237A84EF0016B2C4 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7046ECE237A84EF0016B2C4 /* ChannelTableViewCell.xib */; };
 		A7046ED3237A8BCF0016B2C4 /* ChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046ED2237A8BCF0016B2C4 /* ChannelsViewController.m */; };
 		A7046ED6237A91E30016B2C4 /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046ED5237A91E30016B2C4 /* AppSettings.m */; };
+		A7046ED9237B8D560016B2C4 /* RestaurantDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7046ED8237B8D560016B2C4 /* RestaurantDetails.storyboard */; };
+		A7046EDD237B9C5A0016B2C4 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EDC237B9C5A0016B2C4 /* Channel.m */; };
+		A7046EE1237BD5660016B2C4 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EE0237BD5660016B2C4 /* ChatViewController.m */; };
+		A7046EE5237BE3100016B2C4 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EE4237BE3100016B2C4 /* Message.m */; };
 		A7F678C7237515A000425CC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F678C6237515A000425CC7 /* AppDelegate.m */; };
 		A7F678CD237515A000425CC7 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F678CB237515A000425CC7 /* Home.storyboard */; };
 		A7F678D0237515A000425CC7 /* iOSTrainingAPICalls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7F678CE237515A000425CC7 /* iOSTrainingAPICalls.xcdatamodeld */; };
@@ -123,6 +127,14 @@
 		A7046ED2237A8BCF0016B2C4 /* ChannelsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelsViewController.m; sourceTree = "<group>"; };
 		A7046ED5237A91E30016B2C4 /* AppSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSettings.m; sourceTree = "<group>"; };
 		A7046ED7237A926D0016B2C4 /* AppSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSettings.h; sourceTree = "<group>"; };
+		A7046ED8237B8D560016B2C4 /* RestaurantDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RestaurantDetails.storyboard; sourceTree = "<group>"; };
+		A7046EDB237B9C5A0016B2C4 /* Channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
+		A7046EDC237B9C5A0016B2C4 /* Channel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
+		A7046EDE237BA66D0016B2C4 /* DatabasePresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabasePresentation.h; sourceTree = "<group>"; };
+		A7046EDF237BD5660016B2C4 /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		A7046EE0237BD5660016B2C4 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		A7046EE3237BE3100016B2C4 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		A7046EE4237BE3100016B2C4 /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		A7F678C2237515A000425CC7 /* iOSTrainingAPICalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTrainingAPICalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F678C5237515A000425CC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A7F678C6237515A000425CC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -296,6 +308,7 @@
 		A7046E912376A8750016B2C4 /* RestaurantDetails */ = {
 			isa = PBXGroup;
 			children = (
+				A7046ED8237B8D560016B2C4 /* RestaurantDetails.storyboard */,
 				A7046E932376A8950016B2C4 /* Views */,
 				A7046E922376A8920016B2C4 /* Controllers */,
 			);
@@ -405,6 +418,7 @@
 		A7046EB6237A7D3C0016B2C4 /* Channels */ = {
 			isa = PBXGroup;
 			children = (
+				A7046EDA237B9C030016B2C4 /* Models */,
 				A7046EB8237A7D470016B2C4 /* Views */,
 				A7046EB7237A7D440016B2C4 /* Controllers */,
 			);
@@ -434,7 +448,7 @@
 		A7046EB9237A7D590016B2C4 /* ChatView */ = {
 			isa = PBXGroup;
 			children = (
-				A7046EBB237A7D900016B2C4 /* Views */,
+				A7046EE2237BE2E30016B2C4 /* Models */,
 				A7046EBA237A7D850016B2C4 /* Controllers */,
 			);
 			path = ChatView;
@@ -443,15 +457,10 @@
 		A7046EBA237A7D850016B2C4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A7046EDF237BD5660016B2C4 /* ChatViewController.h */,
+				A7046EE0237BD5660016B2C4 /* ChatViewController.m */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		A7046EBB237A7D900016B2C4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		A7046ECB237A82AC0016B2C4 /* Cells */ = {
@@ -471,6 +480,25 @@
 				A7046ED5237A91E30016B2C4 /* AppSettings.m */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		A7046EDA237B9C030016B2C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A7046EDB237B9C5A0016B2C4 /* Channel.h */,
+				A7046EDC237B9C5A0016B2C4 /* Channel.m */,
+				A7046EDE237BA66D0016B2C4 /* DatabasePresentation.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A7046EE2237BE2E30016B2C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A7046EE3237BE3100016B2C4 /* Message.h */,
+				A7046EE4237BE3100016B2C4 /* Message.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A7F678B9237515A000425CC7 = {
@@ -655,6 +683,7 @@
 				A7046EC2237A7EA10016B2C4 /* LoginView.xib in Resources */,
 				A7046EAA237A58CA0016B2C4 /* GoogleService-Info.plist in Resources */,
 				A7046E8B237673240016B2C4 /* RestaurantViewCell.xib in Resources */,
+				A7046ED9237B8D560016B2C4 /* RestaurantDetails.storyboard in Resources */,
 				A7046ECA237A82960016B2C4 /* ChannelsView.xib in Resources */,
 				A7046EA5237944D20016B2C4 /* MapView.xib in Resources */,
 			);
@@ -819,6 +848,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7F678D0237515A000425CC7 /* iOSTrainingAPICalls.xcdatamodeld in Sources */,
+				A7046EE5237BE3100016B2C4 /* Message.m in Sources */,
 				A7046E802376729F0016B2C4 /* RestaurantsView.m in Sources */,
 				A7046E7D2376723D0016B2C4 /* RestaurantsViewController.m in Sources */,
 				A7046E992376A9BA0016B2C4 /* RestaurantDetailsView.m in Sources */,
@@ -831,6 +861,7 @@
 				A7046EC8237A82860016B2C4 /* ChannelsView.m in Sources */,
 				A7046E962376A92B0016B2C4 /* RestaurantDetailsViewController.m in Sources */,
 				A7046E7223751AB00016B2C4 /* HomeTableViewCell.m in Sources */,
+				A7046EDD237B9C5A0016B2C4 /* Channel.m in Sources */,
 				A7F678D8237515A100425CC7 /* main.m in Sources */,
 				A7046EBE237A7E720016B2C4 /* LoginView.m in Sources */,
 				A7046ED3237A8BCF0016B2C4 /* ChannelsViewController.m in Sources */,
@@ -838,6 +869,7 @@
 				A7046EA32379444A0016B2C4 /* MapView.m in Sources */,
 				A7046EA8237944F80016B2C4 /* MapViewController.m in Sources */,
 				A7046E6D237518E50016B2C4 /* HomeViewController.m in Sources */,
+				A7046EE1237BD5660016B2C4 /* ChatViewController.m in Sources */,
 				A7F678C7237515A000425CC7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1017,7 +1049,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.opsolutions.iOSTrainingAPICalls;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zmjy.NotifTutorial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1035,7 +1067,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.opsolutions.iOSTrainingAPICalls;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zmjy.NotifTutorial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

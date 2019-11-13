@@ -30,6 +30,8 @@
     [self.view addSubview:self.restaurantsView];
     self.navigationItem.title = @"Restaurants";
     [self.restaurantsView.restaurantsCollectionView registerNib:[UINib nibWithNibName:@"RestaurantViewCell" bundle:nil] forCellWithReuseIdentifier:@"restaurantCell"];
+    [self initLocationServices];
+    [self checkLocationServicesAccess];
     [self getRestaurants];
 }
 
@@ -84,13 +86,13 @@
     cell.restaurantNameLabel.text = restaurant.restaurantName;
     cell.timingLabel.text = restaurant.restaurantTiming;
     [cell.imageActivityIndicator startAnimating];
+    UIImage *noImage = [UIImage imageNamed:@"ic_no_image"];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
     dispatch_async(queue, ^{
         NSURL *url = [NSURL URLWithString:restaurant.restaurantThumb];
         NSData * imageData = [NSData dataWithContentsOfURL: url];
         if ([restaurant.restaurantThumb isEqualToString:@""]) {
-            UIImage *image = [UIImage imageNamed:@"ic_no_image"];
-            cell.restaurantImageView.image = image;
+            cell.restaurantImageView.image = noImage;
             [cell.imageActivityIndicator stopAnimating];
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -128,14 +130,59 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"collectionToDetails"]) {
-        RestaurantDetailsViewController *restaurantDetailsVc = [segue destinationViewController];
+        UINavigationController *navVc = [segue destinationViewController];
+        RestaurantDetailsViewController *restaurantDetailsVc = navVc.viewControllers[0];
         restaurantDetailsVc.restaurant = self.restaurant;
-        NSLog(@"Object: %@,", self.restaurant.restaurantName);
     } else if ([segue.identifier isEqualToString:@"restaurantToMap"]) {
         UINavigationController *navVc = [segue destinationViewController];
         MapViewController *mapVc = navVc.viewControllers[0];
         mapVc.restaurants = self.restaurants;
     }
+}
+
+#pragma - Location
+
+- (void)initLocationServices {
+    if (_locationManager == nil) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        [_locationManager startUpdatingLocation];
+    }
+}
+
+- (void)checkLocationServicesAccess {
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    switch (status) {
+            case kCLAuthorizationStatusDenied:
+            [_locationManager requestWhenInUseAuthorization];
+            break;
+            case kCLAuthorizationStatusRestricted:
+            break;
+            case kCLAuthorizationStatusNotDetermined:
+            [_locationManager requestWhenInUseAuthorization];
+            break;
+            case kCLAuthorizationStatusAuthorizedAlways:
+            break;
+            case kCLAuthorizationStatusAuthorizedWhenInUse:
+            break;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    CLLocation *clLocation = [locations lastObject];
+    [self settingLocation:clLocation];
+    [_locationManager stopUpdatingLocation];
+    NSLog(@"Location Updated: %@", clLocation);
+}
+
+- (void)settingLocation:(CLLocation *)location {
+    _currentLongitude = [NSString stringWithFormat:@"%.8f", location.coordinate.longitude];
+    _currentLatitude = [NSString stringWithFormat:@"%.8f", location.coordinate.latitude];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"Lcation Error: %@", error);
 }
 
 @end

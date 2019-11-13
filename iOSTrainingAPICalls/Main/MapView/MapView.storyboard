@@ -39,7 +39,7 @@
                     <navigationItem key="navigationItem" title="Map View" id="2gX-Lc-cPF">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="HML-vX-3MD">
                             <connections>
-                                <action selector="tappedButtonBack:" destination="s2n-B0-vce" id="OLn-G8-1Ea"/>
+                                <action selector="onClickedBack:" destination="q0x-ba-rc1" id="7mx-e7-YZP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -48,14 +48,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8m-yX-pjx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="s2n-B0-vce" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="189" y="-11"/>
         </scene>
-        <!--Home-->
+        <!--RestaurantDetails-->
         <scene sceneID="oO8-Yd-a3E">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="F7T-1x-xwc" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="RestaurantDetails" id="F7T-1x-xwc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="839-rs-mYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="990" y="-17"/>

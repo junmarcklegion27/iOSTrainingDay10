@@ -20,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *restaurants;
 @property (strong, nonatomic) Restaurants *restaurant;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -17,25 +17,26 @@
 @implementation MapViewController
 
 const float zoom = 15.0f;
-- (IBAction)tappedBackBarItem:(id)sender {
+
+- (IBAction)onClickedBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.mapView = (MapView *)[[[NSBundle mainBundle] loadNibNamed:@"MapView" owner:self options:nil] objectAtIndex:0];
     self.mapView.frame = self.view.bounds;
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
     UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     [self.view addSubview:self.mapView];
     [self initLocationServices];
-    [self settingUpMap];}
+    [self settingUpMap];
+}
 
 - (void)initLocationServices {
     if (_locationManager == nil) {
         _locationManager = [[CLLocationManager alloc] init];
-//        _locationManager.delegate = self;
         self.mapView.googleMapView.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         [_locationManager startUpdatingLocation];
@@ -46,23 +47,12 @@ const float zoom = 15.0f;
     GMSCameraPosition *camera = [GMSMutableCameraPosition cameraWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude zoom:zoom];
     self.mapView.googleMapView.camera = camera;
 }
-//
-//- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-//    NSLog(@"%@", error);
-//}
-//
-//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-//    CLLocation *clLocation = [locations lastObject];
-//    [self centerToLocation:clLocation];
-//}
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
     for (Restaurants *restaurantObj in self.restaurants) {
         if ([restaurantObj.restaurantId isEqualToString:marker.snippet]) {
             self.restaurant = restaurantObj;
-            NSLog(@"Marker tapped");
-//            [self performSegueWithIdentifier:@"mapToDetails" sender:nil];
-            [self presentRestaurantDetails:restaurantObj];
+            [self performSegueWithIdentifier:@"mapToDetails" sender:nil];
             return YES;
         }
     }
@@ -96,27 +86,29 @@ const float zoom = 15.0f;
     self.mapView.googleMapView.myLocationEnabled = YES;
 }
 
-- (void)presentRestaurantDetails:(Restaurants *) restaurant {
-    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
-    RestaurantDetailsViewController *detailsVC = (RestaurantDetailsViewController*)[mainStoryBoard instantiateViewControllerWithIdentifier:@"restaurantDetails"];
-    
-    detailsVC.restaurant = restaurant;
-    
-    [self presentViewController:detailsVC animated:YES completion:nil];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"mapToDetails"]) {
+        UINavigationController *navVc = [segue destinationViewController];
+        RestaurantDetailsViewController *restaurantDetailsVc = navVc.viewControllers[0];
+        restaurantDetailsVc.restaurant = self.restaurant;
+    }
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"mapToDetails"]) {
-//        UINavigationController *navVc = [segue destinationViewController];
-//        NSLog(@"%@", navVc.viewControllers[1]);
-//
-//        RestaurantDetailsViewController *restaurantDetailsVc = navVc.viewControllers[2];
-//        restaurantDetailsVc.restaurant = self.restaurant;
-//
-////        RestaurantDetailsViewController *restaurantDetailsVc = [segue destinationViewController];
-////        restaurantDetailsVc.restaurant = self.restaurant;
-////        NSLog(@"Object: %@,", self.restaurant.restaurantName);
-//    }
-//}
-
+- (void)checkLocationServicesAccess {
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    switch (status) {
+            case kCLAuthorizationStatusDenied:
+            [_locationManager requestWhenInUseAuthorization];
+            break;
+            case kCLAuthorizationStatusRestricted:
+            break;
+            case kCLAuthorizationStatusNotDetermined:
+            [_locationManager requestWhenInUseAuthorization];
+            break;
+            case kCLAuthorizationStatusAuthorizedAlways:
+            break;
+            case kCLAuthorizationStatusAuthorizedWhenInUse:
+            break;
+    }
+}
 @end
