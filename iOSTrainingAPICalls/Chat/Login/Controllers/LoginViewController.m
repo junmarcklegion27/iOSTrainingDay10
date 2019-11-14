@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "../../Channels/Controllers/ChannelsViewController.h"
 @interface LoginViewController ()
 
 @end
@@ -27,11 +28,23 @@
 
 - (void)onClickedSignin {
     NSString *username = self.loginView.loginTextField.text;
+    if ([username isEqualToString:@""]) {
+        return;
+    }
     [[AppSettings shared] setUsername:username];
     [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRAuthDataResult *authResult, NSError *error) {
-        [self performSegueWithIdentifier:@"loginToChannels" sender:nil];
+        [self performSegueWithIdentifier:@"loginToChannels" sender:[authResult user]];
     }];
 
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"loginToChannels"]) {
+        UINavigationController *navVC = [segue destinationViewController];
+        ChannelsViewController *channelVc = navVC.viewControllers[0];
+        FIRUser *user = sender;
+        channelVc.user = user;
+    }
 }
 
 /*

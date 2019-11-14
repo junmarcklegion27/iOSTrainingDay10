@@ -27,6 +27,8 @@
     [self.homeView.homeActivityIndicator startAnimating];
     self.navigationItem.title = @"Categories";
     [self.homeView.homeTableView registerNib:[UINib nibWithNibName:@"HomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"homeCell"];
+    [self initLocationServices];
+    [self checkLocationServicesAccess];
     [self getCategories];
 }
 
@@ -81,7 +83,61 @@
     if ([segue.identifier isEqualToString:@"categoryToCollection"]) {
         RestaurantsViewController *restaurantsVc = [segue destinationViewController];
         restaurantsVc.categoryId = self.categoryId;
+        restaurantsVc.currentLatitude = self.currentLatitude;
+        restaurantsVc.currentLongitude = self.currentLongitude;
+        restaurantsVc.clLocation = self.clLocation;
     }
+}
+
+#pragma - Location
+
+- (void)initLocationServices {
+    if (_locationManager == nil) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        [_locationManager startUpdatingLocation];
+    }
+}
+
+- (void)checkLocationServicesAccess {
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    switch (status) {
+            case kCLAuthorizationStatusDenied:
+            [_locationManager requestWhenInUseAuthorization];
+            break;
+            case kCLAuthorizationStatusRestricted:
+            break;
+            case kCLAuthorizationStatusNotDetermined:
+            [_locationManager requestWhenInUseAuthorization];
+            break;
+            case kCLAuthorizationStatusAuthorizedAlways:
+            break;
+            case kCLAuthorizationStatusAuthorizedWhenInUse:
+            break;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    if (_clLocation != nil) {
+        [_locationManager stopUpdatingLocation];
+        return;
+    }
+    _clLocation = [locations lastObject];
+    NSLog(@"CLLocation%@", _clLocation);
+    [self settingLocation:_clLocation];
+    NSLog(@"Location Updated: %@",_clLocation);
+}
+
+- (void)settingLocation:(CLLocation *)location {
+    _currentLongitude = [NSString stringWithFormat:@"%.8f", location.coordinate.longitude];
+    _currentLatitude = [NSString stringWithFormat:@"%.8f", location.coordinate.latitude];
+
+    NSLog(@"Longitude: %@, Latitude: %@", _currentLongitude, _currentLatitude);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"Location Error: %@", error);
 }
 
 @end

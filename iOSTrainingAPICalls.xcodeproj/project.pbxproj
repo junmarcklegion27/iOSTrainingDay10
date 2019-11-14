@@ -45,6 +45,7 @@
 		A7046EDD237B9C5A0016B2C4 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EDC237B9C5A0016B2C4 /* Channel.m */; };
 		A7046EE1237BD5660016B2C4 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EE0237BD5660016B2C4 /* ChatViewController.m */; };
 		A7046EE5237BE3100016B2C4 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EE4237BE3100016B2C4 /* Message.m */; };
+		A7046EE7237D3B950016B2C4 /* Channel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7046EE6237D3B950016B2C4 /* Channel.storyboard */; };
 		A7F678C7237515A000425CC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F678C6237515A000425CC7 /* AppDelegate.m */; };
 		A7F678CD237515A000425CC7 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F678CB237515A000425CC7 /* Home.storyboard */; };
 		A7F678D0237515A000425CC7 /* iOSTrainingAPICalls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7F678CE237515A000425CC7 /* iOSTrainingAPICalls.xcdatamodeld */; };
@@ -135,6 +136,7 @@
 		A7046EE0237BD5660016B2C4 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		A7046EE3237BE3100016B2C4 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A7046EE4237BE3100016B2C4 /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		A7046EE6237D3B950016B2C4 /* Channel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channel.storyboard; sourceTree = "<group>"; };
 		A7F678C2237515A000425CC7 /* iOSTrainingAPICalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTrainingAPICalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F678C5237515A000425CC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A7F678C6237515A000425CC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 		A7046EB6237A7D3C0016B2C4 /* Channels */ = {
 			isa = PBXGroup;
 			children = (
+				A7046EE6237D3B950016B2C4 /* Channel.storyboard */,
 				A7046EDA237B9C030016B2C4 /* Models */,
 				A7046EB8237A7D470016B2C4 /* Views */,
 				A7046EB7237A7D440016B2C4 /* Controllers */,
@@ -675,6 +678,7 @@
 				A7046E7323751AB00016B2C4 /* HomeTableViewCell.xib in Resources */,
 				A7046EB3237A7C040016B2C4 /* Chat.storyboard in Resources */,
 				A7046ED0237A84EF0016B2C4 /* ChannelTableViewCell.xib in Resources */,
+				A7046EE7237D3B950016B2C4 /* Channel.storyboard in Resources */,
 				A7046E9B2376A9D40016B2C4 /* RestaurantDetailsView.xib in Resources */,
 				A7046EAC237A77F90016B2C4 /* Main.storyboard in Resources */,
 				A7046E9E23793FB60016B2C4 /* MapView.storyboard in Resources */,

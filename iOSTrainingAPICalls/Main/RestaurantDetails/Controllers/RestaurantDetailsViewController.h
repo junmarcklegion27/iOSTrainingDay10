@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "../Views/RestaurantDetailsView.h"
 #import "../../Restaurants/Models/Restaurants.h"
+#import <CoreLocation/CoreLocation.h>
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -18,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) RestaurantDetailsView *restaurantsDetailsView;
 @property (strong, readwrite) Restaurants *restaurant;
 @property (assign, nonatomic) BOOL isBackbuttonShown;
+@property (strong, nonatomic) NSString *currentLatitude;
+@property (strong, nonatomic) NSString *currentLongitude;
+@property (strong, nonatomic) CLLocation *clLocation;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 

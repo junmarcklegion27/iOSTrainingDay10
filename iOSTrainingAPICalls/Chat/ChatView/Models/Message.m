@@ -15,11 +15,11 @@
     NSString *senderId = data[@"senderId"];
     NSString *senderName = data[@"senderName"];
     NSString *textSent = data[@"text"];
-    NSDate *dateSent = data[@"date"];
+    FIRTimestamp *timeStampSent = data[@"date"];
     if (senderId == nil) {
         return nil;
     }
-    Message *message = [[Message alloc] initWithSenderId:senderId senderDisplayName:senderName date:dateSent text:textSent];
+    Message *message = [[Message alloc] initWithSenderId:senderId senderDisplayName:senderName date:[timeStampSent dateValue] text:textSent];
     return message;
 }
 

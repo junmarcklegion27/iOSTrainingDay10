@@ -20,6 +20,9 @@
 @end
 
 @implementation ChannelsViewController
+- (IBAction)onClickedSignout:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +35,7 @@
     self.channelsView.frame = self.view.bounds;
     self.channelsView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
     UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    [self.channelsUIView addSubview:self.channelsView];
+    [self.view addSubview:self.channelsView];
     self.navigationItem.title = @"Channels";
     [self.channelsView.channelsTableView registerNib:[UINib nibWithNibName:@"ChannelTableViewCell" bundle:nil] forCellReuseIdentifier:@"channelCell"];
     self.channelsView.usernameLabel.text = [[AppSettings shared] getUsername];
@@ -174,6 +177,7 @@
         count++;
     }
 }
+
 #pragma delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -196,11 +200,24 @@
     if (channel == nil) {
         return;
     }
-    ChatViewController *chatVc = [ChatViewController initWithChannel:channel];
+    ChatViewController *chatVc = [ChatViewController initWithChannel:channel firUser:_user];
     if ([self navigationController] != nil) {
-        [[self navigationController] presentViewController:chatVc animated:YES completion:nil];
+        [[self navigationController] showViewController:chatVc sender:nil];
     } else {
-        [self presentViewController:chatVc animated:YES completion:nil];
+        [self showViewController:chatVc sender:nil];
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return true;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Channel *channel = _channels[indexPath.row];
+        [[_channelRef documentWithPath:channel.channelId] deleteDocument];
+        
     }
 }
 

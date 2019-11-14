@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RestaurantDetailsView : UIView
+@interface RestaurantDetailsView : UIView<GMSMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *restaurantImageView;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantCuisineLabel;
@@ -18,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *restaurantAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantTiming;
 @property (weak, nonatomic) IBOutlet UILabel *averageCostForTwoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet GMSMapView *miniMapView;
 
 @end
 

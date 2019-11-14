@@ -40,49 +40,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="Mar-7S-bBp"/>
                     <connections>
-                        <segue destination="A8n-kt-bFt" kind="show" identifier="loginToChannels" id="Jsr-bW-UGE"/>
+                        <segue destination="UH6-Y6-xug" kind="show" identifier="loginToChannels" id="WTH-th-CTb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bq3-Lh-tTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="122" y="117"/>
         </scene>
-        <!--Title-->
-        <scene sceneID="DSb-nG-ZJy">
+        <!--Channel-->
+        <scene sceneID="Ghf-Ni-Q2N">
             <objects>
-                <viewController id="A8n-kt-bFt" customClass="ChannelsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sEC-xp-xhh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRg-Tc-oef">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="jRg-Tc-oef" firstAttribute="leading" secondItem="Rhm-qe-VJu" secondAttribute="leading" id="26O-Do-rDU"/>
-                            <constraint firstItem="Rhm-qe-VJu" firstAttribute="trailing" secondItem="jRg-Tc-oef" secondAttribute="trailing" id="LXM-gK-JRk"/>
-                            <constraint firstItem="Rhm-qe-VJu" firstAttribute="bottom" secondItem="jRg-Tc-oef" secondAttribute="bottom" id="iWe-5V-2Jk"/>
-                            <constraint firstItem="jRg-Tc-oef" firstAttribute="top" secondItem="Rhm-qe-VJu" secondAttribute="top" id="pHV-1a-jgg"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Rhm-qe-VJu"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="pCi-d9-cfE">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="bq5-5c-shZ">
-                            <connections>
-                                <action selector="onClickedAdd:" destination="A8n-kt-bFt" id="8P9-bT-9Gb"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="channelsUIView" destination="jRg-Tc-oef" id="vJn-Rw-7Kk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VcU-0I-5yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Channel" id="UH6-Y6-xug" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nx2-Fy-yFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="117"/>
+            <point key="canvasLocation" x="953" y="111"/>
         </scene>
     </scenes>
 </document>

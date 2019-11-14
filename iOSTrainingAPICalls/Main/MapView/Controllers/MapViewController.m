@@ -91,24 +91,9 @@ const float zoom = 15.0f;
         UINavigationController *navVc = [segue destinationViewController];
         RestaurantDetailsViewController *restaurantDetailsVc = navVc.viewControllers[0];
         restaurantDetailsVc.restaurant = self.restaurant;
-    }
-}
+        restaurantDetailsVc.currentLongitude = self.currentLongitude;
+        restaurantDetailsVc.currentLatitude = self.currentLatitude;
 
-- (void)checkLocationServicesAccess {
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    switch (status) {
-            case kCLAuthorizationStatusDenied:
-            [_locationManager requestWhenInUseAuthorization];
-            break;
-            case kCLAuthorizationStatusRestricted:
-            break;
-            case kCLAuthorizationStatusNotDetermined:
-            [_locationManager requestWhenInUseAuthorization];
-            break;
-            case kCLAuthorizationStatusAuthorizedAlways:
-            break;
-            case kCLAuthorizationStatusAuthorizedWhenInUse:
-            break;
     }
 }
 @end

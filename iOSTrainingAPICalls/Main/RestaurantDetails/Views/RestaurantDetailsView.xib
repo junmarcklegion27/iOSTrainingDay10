@@ -35,13 +35,13 @@
                                             <rect key="frame" x="0.0" y="8" width="375" height="52"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqG-i4-sj6">
-                                                    <rect key="frame" x="8" y="8" width="274.5" height="36"/>
+                                                    <rect key="frame" x="8" y="8" width="274" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhD-Vn-wAY">
-                                                    <rect key="frame" x="290.5" y="8" width="76.5" height="36"/>
+                                                    <rect key="frame" x="290" y="8" width="77" height="36"/>
                                                     <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                     <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,20 +83,40 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbd-uT-H8O" customClass="GMSMapView">
+                                            <rect key="frame" x="8" y="311" width="359" height="120"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="120" id="fa0-Vr-B31"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phv-9R-cCT">
+                                            <rect key="frame" x="8" y="282.5" width="359" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="dVK-kD-m2B" firstAttribute="leading" secondItem="v6y-pe-S2e" secondAttribute="leading" id="3os-Bl-Bmy"/>
+                                        <constraint firstItem="Phv-9R-cCT" firstAttribute="leading" secondItem="rbd-uT-H8O" secondAttribute="leading" id="405-EI-2eH"/>
+                                        <constraint firstAttribute="bottom" secondItem="rbd-uT-H8O" secondAttribute="bottom" constant="8" id="7Hr-Ox-rDz"/>
                                         <constraint firstItem="qJ0-7I-mkl" firstAttribute="top" secondItem="6b1-Mm-N4D" secondAttribute="bottom" constant="8" id="7cU-kb-ga6"/>
                                         <constraint firstItem="v6y-pe-S2e" firstAttribute="top" secondItem="yIY-Xp-AMW" secondAttribute="bottom" constant="8" id="8lc-Ct-TS8"/>
+                                        <constraint firstItem="Phv-9R-cCT" firstAttribute="trailing" secondItem="rbd-uT-H8O" secondAttribute="trailing" id="9Ms-Dy-1pF"/>
                                         <constraint firstItem="v6y-pe-S2e" firstAttribute="leading" secondItem="0rh-47-prZ" secondAttribute="leading" constant="8" id="ALJ-fo-XNr"/>
                                         <constraint firstItem="qJ0-7I-mkl" firstAttribute="leading" secondItem="6b1-Mm-N4D" secondAttribute="leading" id="EPK-iy-2DI"/>
+                                        <constraint firstItem="rbd-uT-H8O" firstAttribute="leading" secondItem="0rh-47-prZ" secondAttribute="leading" constant="8" id="FDb-nN-Co1"/>
                                         <constraint firstAttribute="trailing" secondItem="v6y-pe-S2e" secondAttribute="trailing" constant="8" id="HWP-UR-sNR"/>
                                         <constraint firstItem="dVK-kD-m2B" firstAttribute="trailing" secondItem="v6y-pe-S2e" secondAttribute="trailing" id="NeX-dd-ID4"/>
                                         <constraint firstAttribute="trailing" secondItem="yIY-Xp-AMW" secondAttribute="trailing" id="Nmr-EW-rxx"/>
+                                        <constraint firstItem="Phv-9R-cCT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qJ0-7I-mkl" secondAttribute="bottom" constant="99" id="PdL-Qc-na4"/>
                                         <constraint firstItem="yIY-Xp-AMW" firstAttribute="top" secondItem="0rh-47-prZ" secondAttribute="top" constant="8" id="RYP-tv-e3s"/>
+                                        <constraint firstItem="rbd-uT-H8O" firstAttribute="top" secondItem="Phv-9R-cCT" secondAttribute="bottom" constant="8" id="USW-d4-9qN"/>
                                         <constraint firstItem="qJ0-7I-mkl" firstAttribute="trailing" secondItem="6b1-Mm-N4D" secondAttribute="trailing" id="WLw-Gh-PH9"/>
                                         <constraint firstItem="yIY-Xp-AMW" firstAttribute="leading" secondItem="0rh-47-prZ" secondAttribute="leading" id="aA0-un-sWT"/>
+                                        <constraint firstAttribute="trailing" secondItem="rbd-uT-H8O" secondAttribute="trailing" constant="8" id="fre-J1-waG"/>
                                         <constraint firstItem="6b1-Mm-N4D" firstAttribute="trailing" secondItem="dVK-kD-m2B" secondAttribute="trailing" id="hNT-6s-VGW"/>
                                         <constraint firstItem="dVK-kD-m2B" firstAttribute="top" secondItem="v6y-pe-S2e" secondAttribute="bottom" constant="8" id="pjh-vp-Rp9"/>
                                         <constraint firstItem="6b1-Mm-N4D" firstAttribute="top" secondItem="dVK-kD-m2B" secondAttribute="bottom" constant="7.5" id="w75-NN-TmH"/>
@@ -136,6 +156,8 @@
             <viewLayoutGuide key="safeArea" id="pSn-kv-8r9"/>
             <connections>
                 <outlet property="averageCostForTwoLabel" destination="qJ0-7I-mkl" id="53h-es-36Y"/>
+                <outlet property="distanceLabel" destination="Phv-9R-cCT" id="CCg-yO-I2Q"/>
+                <outlet property="miniMapView" destination="rbd-uT-H8O" id="AZh-d0-umU"/>
                 <outlet property="restaurantAddressLabel" destination="dVK-kD-m2B" id="MY3-t2-6zt"/>
                 <outlet property="restaurantCuisineLabel" destination="v6y-pe-S2e" id="5M0-PO-Lib"/>
                 <outlet property="restaurantImageView" destination="jOr-Qm-aNt" id="79Q-Tw-Ws9"/>

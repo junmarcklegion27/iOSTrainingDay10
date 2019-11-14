@@ -30,17 +30,21 @@
     [self.view addSubview:self.restaurantsView];
     self.navigationItem.title = @"Restaurants";
     [self.restaurantsView.restaurantsCollectionView registerNib:[UINib nibWithNibName:@"RestaurantViewCell" bundle:nil] forCellWithReuseIdentifier:@"restaurantCell"];
-    [self initLocationServices];
-    [self checkLocationServicesAccess];
+    _viewMapButton.enabled = NO;
+    NSLog(@"Latitude %@", _currentLatitude);
+    NSLog(@"Longitude %@", _currentLongitude);
+
     [self getRestaurants];
 }
 
 - (void) getRestaurants {
     NSString *categoriesUrl = @"https://developers.zomato.com/api/v2.1/search";
     NSString *apiKey = @"9255d38e382f43e03af2ce0c42737385";
+//    _currentLongitude = @"121.037037";
+//    _currentLatitude = @"14.219866";
     NSDictionary *parameters = @{@"category" : _categoryId,
-                                 @"lat" : @"14.219866",
-                                 @"lon" : @"121.037037",
+                                 @"lat" : _currentLatitude,
+                                 @"lon" : _currentLongitude,
                                  @"radius" : @"2000",
                                  @"sort" : @"real_distance"
                                  };
@@ -52,7 +56,6 @@
     [manager GET:categoriesUrl parameters:parameters progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *responseDictionary = responseObject;
         NSArray *responseArray = responseDictionary[@"restaurants"];
-        NSLog(@"%@", responseArray);
         self.restaurants = [[NSMutableArray alloc] init];
         for (id item in responseArray) {
             NSDictionary *responseCategory = item[@"restaurant"];
@@ -73,8 +76,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.restaurantsView.restaurantsCollectionView reloadData];
             [self.restaurantsView.restaurantsActivityIndicator stopAnimating];
+            self.viewMapButton.enabled = YES;
         });
-//        NSLog(@"Restaurants: %@", responseObject);
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -133,56 +136,18 @@
         UINavigationController *navVc = [segue destinationViewController];
         RestaurantDetailsViewController *restaurantDetailsVc = navVc.viewControllers[0];
         restaurantDetailsVc.restaurant = self.restaurant;
+        restaurantDetailsVc.clLocation = self.clLocation;
+        restaurantDetailsVc.currentLongitude = self.currentLongitude;
+        restaurantDetailsVc.currentLatitude = self.currentLatitude;
     } else if ([segue.identifier isEqualToString:@"restaurantToMap"]) {
         UINavigationController *navVc = [segue destinationViewController];
         MapViewController *mapVc = navVc.viewControllers[0];
         mapVc.restaurants = self.restaurants;
+        mapVc.clLocation = self.clLocation;
+        mapVc.currentLongitude = self.currentLongitude;
+        mapVc.currentLatitude = self.currentLatitude;
     }
 }
 
-#pragma - Location
-
-- (void)initLocationServices {
-    if (_locationManager == nil) {
-        _locationManager = [[CLLocationManager alloc] init];
-        _locationManager.delegate = self;
-        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        [_locationManager startUpdatingLocation];
-    }
-}
-
-- (void)checkLocationServicesAccess {
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    switch (status) {
-            case kCLAuthorizationStatusDenied:
-            [_locationManager requestWhenInUseAuthorization];
-            break;
-            case kCLAuthorizationStatusRestricted:
-            break;
-            case kCLAuthorizationStatusNotDetermined:
-            [_locationManager requestWhenInUseAuthorization];
-            break;
-            case kCLAuthorizationStatusAuthorizedAlways:
-            break;
-            case kCLAuthorizationStatusAuthorizedWhenInUse:
-            break;
-    }
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    CLLocation *clLocation = [locations lastObject];
-    [self settingLocation:clLocation];
-    [_locationManager stopUpdatingLocation];
-    NSLog(@"Location Updated: %@", clLocation);
-}
-
-- (void)settingLocation:(CLLocation *)location {
-    _currentLongitude = [NSString stringWithFormat:@"%.8f", location.coordinate.longitude];
-    _currentLatitude = [NSString stringWithFormat:@"%.8f", location.coordinate.latitude];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"Lcation Error: %@", error);
-}
 
 @end

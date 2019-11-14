@@ -65,6 +65,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="viewMapButton" destination="ntA-uh-bCm" id="OjD-Go-2an"/>
                         <segue destination="ABe-gi-v51" kind="show" identifier="collectionToDetails" id="3E0-rP-DL2"/>
                     </connections>
                 </viewController>

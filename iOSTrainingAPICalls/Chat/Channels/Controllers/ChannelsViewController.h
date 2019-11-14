@@ -10,6 +10,7 @@
 #import "../Views/ChannelsView.h"
 #import "../../Utility/AppSettings.h"
 #import <FirebaseFirestore/FirebaseFirestore.h>
+#import <FirebaseAuth/FirebaseAuth.h>
 #import "../Models/Channel.h"
 #import <FIRListenerRegistration.h>
 
@@ -19,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong) ChannelsView *channelsView;
 @property (weak, nonatomic) IBOutlet UIView *channelsUIView;
+@property (strong, nonatomic) FIRUser *user;
+
 @end
 
 NS_ASSUME_NONNULL_END
