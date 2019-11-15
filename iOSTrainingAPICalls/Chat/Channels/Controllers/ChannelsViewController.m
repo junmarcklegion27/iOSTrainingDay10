@@ -21,6 +21,7 @@
 
 @implementation ChannelsViewController
 - (IBAction)onClickedSignout:(id)sender {
+    [[FIRAuth auth] signOut:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
