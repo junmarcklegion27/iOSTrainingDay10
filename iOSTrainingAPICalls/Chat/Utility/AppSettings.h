@@ -14,6 +14,7 @@
 
 +(instancetype)shared;
 - (NSString *)getUsername;
+- (void)deleteUsername;
 - (void)setUsername:(NSString *)username;
 
 @end

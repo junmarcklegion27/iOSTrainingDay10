@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "../Views/LoginView.h"
+#import "../Views/SigninView.h"
 #import <FirebaseAuth/FirebaseAuth.h>
 #import "../../Utility/AppSettings.h"
 
@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LoginViewController : UIViewController<LoginDelegate>
 
-@property (strong, nonatomic) LoginView *loginView;
+//@property (strong, nonatomic) LoginView *loginView;
+@property (strong, nonatomic) SigninView *signinView;
 
 @end
 

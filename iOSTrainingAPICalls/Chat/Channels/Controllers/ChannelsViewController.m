@@ -22,6 +22,7 @@
 @implementation ChannelsViewController
 - (IBAction)onClickedSignout:(id)sender {
     [[FIRAuth auth] signOut:nil];
+    [AppSettings.shared deleteUsername];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -70,7 +71,8 @@
 - (void)onClickedOK {
     UITextField *channelField = _alertController.textFields[0];
     NSString *channelName = channelField.text;
-    if (channelField == nil) {
+    if ([channelName isEqualToString:@""]) {
+        [self showWithMessage:@"Please input a valid Channel name."];
         return;
     } else {
         for (Channel *channel in _channels) {

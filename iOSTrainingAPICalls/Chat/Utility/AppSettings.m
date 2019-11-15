@@ -20,7 +20,10 @@
 - (void)setUsername: (NSString *)username {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:username forKey:@"username"];
-    
+}
+
+- (void)deleteUsername {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
 }
 
 +(instancetype)shared {

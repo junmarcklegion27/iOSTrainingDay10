@@ -34,14 +34,15 @@
 - (void)getRestaurant {
     self.restaurantsDetailsView.restaurantNameLabel.text = self.restaurant.restaurantName;
     self.restaurantsDetailsView.restaurantCuisineLabel.text = [NSString stringWithFormat:@"Cuisine/s: %@", self.restaurant.restaurantCuisines];
-    self.restaurantsDetailsView.restaurantRatingLabel.text = [NSString stringWithFormat:@"%.02f", self.restaurant.restaurantUserRating];
-    self.restaurantsDetailsView.restaurantRatingLabel.layer.cornerRadius = 10;
+    self.restaurantsDetailsView.restaurantRatingLabel.text = [NSString stringWithFormat:@"%.1f", self.restaurant.restaurantUserRating];
+    self.restaurantsDetailsView.ratingView.layer.cornerRadius = 10;
+    self.restaurantsDetailsView.ratingView.layer.masksToBounds = YES;
     self.restaurantsDetailsView.restaurantAddressLabel.text = [NSString stringWithFormat:@"Address: %@", self.restaurant.restaurantLocation];
     self.restaurantsDetailsView.restaurantTiming.text = self.restaurant.restaurantTiming;
     self.restaurantsDetailsView.averageCostForTwoLabel.text = [NSString stringWithFormat:@"Average cost for two: %.02f Php", self.restaurant.restaurantAverageCostForTwo];
     
     CLLocationDistance distance = [self distanceBetweenCoordinate:[self getCoordinate] andCoordinate:[self getSecondCoordinate]];
-    self.restaurantsDetailsView.distanceLabel.text = [NSString stringWithFormat:@"Distance from restaurant: %.4f km", distance];
+    self.restaurantsDetailsView.distanceLabel.text = [NSString stringWithFormat:@"Distance from restaurant: %.4f km\nDisclaimer: This distance is not via Road network.", distance];
     
     NSArray  *data = [self.restaurant.restaurantThumb componentsSeparatedByString:@"?"];
     for(NSString* str in data) {

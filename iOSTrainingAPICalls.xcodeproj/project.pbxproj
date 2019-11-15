@@ -46,6 +46,8 @@
 		A7046EE1237BD5660016B2C4 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EE0237BD5660016B2C4 /* ChatViewController.m */; };
 		A7046EE5237BE3100016B2C4 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EE4237BE3100016B2C4 /* Message.m */; };
 		A7046EE7237D3B950016B2C4 /* Channel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7046EE6237D3B950016B2C4 /* Channel.storyboard */; };
+		A7046EEA237E39510016B2C4 /* SigninView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7046EE9237E39510016B2C4 /* SigninView.m */; };
+		A7046EEC237E39780016B2C4 /* SigninView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7046EEB237E39780016B2C4 /* SigninView.xib */; };
 		A7F678C7237515A000425CC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F678C6237515A000425CC7 /* AppDelegate.m */; };
 		A7F678CD237515A000425CC7 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F678CB237515A000425CC7 /* Home.storyboard */; };
 		A7F678D0237515A000425CC7 /* iOSTrainingAPICalls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7F678CE237515A000425CC7 /* iOSTrainingAPICalls.xcdatamodeld */; };
@@ -137,6 +139,9 @@
 		A7046EE3237BE3100016B2C4 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A7046EE4237BE3100016B2C4 /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		A7046EE6237D3B950016B2C4 /* Channel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channel.storyboard; sourceTree = "<group>"; };
+		A7046EE8237E39510016B2C4 /* SigninView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SigninView.h; sourceTree = "<group>"; };
+		A7046EE9237E39510016B2C4 /* SigninView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SigninView.m; sourceTree = "<group>"; };
+		A7046EEB237E39780016B2C4 /* SigninView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SigninView.xib; sourceTree = "<group>"; };
 		A7F678C2237515A000425CC7 /* iOSTrainingAPICalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTrainingAPICalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F678C5237515A000425CC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A7F678C6237515A000425CC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -392,6 +397,9 @@
 				A7046EBC237A7E720016B2C4 /* LoginView.h */,
 				A7046EBD237A7E720016B2C4 /* LoginView.m */,
 				A7046EC1237A7EA10016B2C4 /* LoginView.xib */,
+				A7046EE8237E39510016B2C4 /* SigninView.h */,
+				A7046EE9237E39510016B2C4 /* SigninView.m */,
+				A7046EEB237E39780016B2C4 /* SigninView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -686,6 +694,7 @@
 				A7046E8D2376819B0016B2C4 /* RestaurantsView.xib in Resources */,
 				A7046EC2237A7EA10016B2C4 /* LoginView.xib in Resources */,
 				A7046EAA237A58CA0016B2C4 /* GoogleService-Info.plist in Resources */,
+				A7046EEC237E39780016B2C4 /* SigninView.xib in Resources */,
 				A7046E8B237673240016B2C4 /* RestaurantViewCell.xib in Resources */,
 				A7046ED9237B8D560016B2C4 /* RestaurantDetails.storyboard in Resources */,
 				A7046ECA237A82960016B2C4 /* ChannelsView.xib in Resources */,
@@ -851,6 +860,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7046EEA237E39510016B2C4 /* SigninView.m in Sources */,
 				A7F678D0237515A000425CC7 /* iOSTrainingAPICalls.xcdatamodeld in Sources */,
 				A7046EE5237BE3100016B2C4 /* Message.m in Sources */,
 				A7046E802376729F0016B2C4 /* RestaurantsView.m in Sources */,

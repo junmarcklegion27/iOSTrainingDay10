@@ -10,6 +10,8 @@
 #import "../../Channels/Controllers/ChannelsViewController.h"
 @interface LoginViewController ()
 
+@property UIAlertController *alertController;
+
 @end
 
 @implementation LoginViewController
@@ -17,11 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.loginView = (LoginView *)[[[NSBundle mainBundle] loadNibNamed:@"LoginView" owner:self options:nil] objectAtIndex:0];
-    self.loginView.frame = self.view.bounds;
-    self.loginView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    [self.view addSubview:self.loginView];
-    self.loginView.loginDelegate = self;
+    self.signinView = (SigninView *)[[[NSBundle mainBundle] loadNibNamed:@"SigninView" owner:self options:nil] objectAtIndex:0];
+    self.signinView.frame = self.view.bounds;
+    self.signinView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    [self.view addSubview:self.signinView];
+    self.signinView.loginDelegate = self;
     self.navigationItem.title = @"Sign-in";
 }
 
@@ -37,24 +39,66 @@
 }
 
 - (void)onClickedSignin {
-    NSString *username = self.loginView.loginTextField.text;
+    NSString *username = self.signinView.userNameTextView.text;
+    NSString *password = self.signinView.passwordTextView.text;
     if ([username isEqualToString:@""]) {
         [self showWithMessage:@"Please enter a username"];
         return;
     }
-    [self.loginView.loginActivityIndicator startAnimating];
-    self.loginView.loginTextField.enabled = NO;
-    self.loginView.loginButton.enabled = NO;
+    [self.signinView.loginActivityIndicator startAnimating];
+    self.signinView.userNameTextView.enabled = NO;
+    self.signinView.passwordTextView.enabled = NO;
+    self.signinView.signinButton.enabled = NO;
+    self.signinView.signinGuestButton.enabled = NO;
     [[AppSettings shared] setUsername:username];
-    [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRAuthDataResult *authResult, NSError *error) {;
-        self.loginView.loginTextField.text = @"";
-        [self.loginView.loginActivityIndicator stopAnimating];
-        self.loginView.loginTextField.enabled = YES;
-        self.loginView.loginButton.enabled = YES;
+    [[FIRAuth auth] signInWithEmail:username password:password completion:^(FIRAuthDataResult *authResult, NSError *error) {
+        self.signinView.userNameTextView.text = @"";
+        self.signinView.passwordTextView.text = @"";
+        [self.signinView.loginActivityIndicator stopAnimating];
+        self.signinView.userNameTextView.enabled = YES;
+        self.signinView.passwordTextView.enabled = YES;
+        self.signinView.signinButton.enabled = YES;
+        self.signinView.signinGuestButton.enabled = YES;
+        if (error != nil) {
+            [self showWithMessage:@"Username or password doesm't match!"];
+            return;
+        }
         [self performSegueWithIdentifier:@"loginToChannels" sender:[authResult user]];
     }];
-
+    
 }
+
+- (void)signinAsGuest {
+    NSString *username = self.alertController.textFields[0].text;
+    if ([username isEqualToString:@""]) {
+        [self showWithMessage:@"Please enter a username"];
+        return;
+    }    [[AppSettings shared] setUsername:username];
+    [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRAuthDataResult *authResult, NSError *error) {
+        self.signinView.userNameTextView.text = @"";
+        [self performSegueWithIdentifier:@"loginToChannels" sender:[authResult user]];
+    }];
+}
+
+- (void)onClickedSigninGuest{
+    UIAlertController *addChannel = [UIAlertController alertControllerWithTitle:@"Sign in as guest" message:@"Please User Name" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action) {
+                                                         [self signinAsGuest];
+                                                     }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {}];
+    
+    [addChannel addAction:okAction];
+    [addChannel addTextFieldWithConfigurationHandler:^(UITextField *channelField) {
+        channelField.placeholder = @"Enter User Name here...";
+    }];
+    [addChannel addAction:cancelAction];
+    [self presentViewController:addChannel animated:YES completion:nil];
+    _alertController = addChannel;
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"loginToChannels"]) {
