@@ -42,9 +42,15 @@
         [self showWithMessage:@"Please enter a username"];
         return;
     }
+    [self.loginView.loginActivityIndicator startAnimating];
+    self.loginView.loginTextField.enabled = NO;
+    self.loginView.loginButton.enabled = NO;
     [[AppSettings shared] setUsername:username];
     [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRAuthDataResult *authResult, NSError *error) {;
         self.loginView.loginTextField.text = @"";
+        [self.loginView.loginActivityIndicator stopAnimating];
+        self.loginView.loginTextField.enabled = YES;
+        self.loginView.loginButton.enabled = YES;
         [self performSegueWithIdentifier:@"loginToChannels" sender:[authResult user]];
     }];
 

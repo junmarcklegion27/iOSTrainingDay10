@@ -42,10 +42,15 @@
                         <constraint firstAttribute="height" constant="180" id="WRe-Nm-Q92"/>
                     </constraints>
                 </imageView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="nLb-Av-mTg">
+                    <rect key="frame" x="177.5" y="333.5" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="raP-Wg-pHv" firstAttribute="centerY" secondItem="jbM-Wu-ZXX" secondAttribute="centerY" id="08V-Zj-JBU"/>
+                <constraint firstItem="nLb-Av-mTg" firstAttribute="centerX" secondItem="jbM-Wu-ZXX" secondAttribute="centerX" id="0Ic-YD-Pyq"/>
+                <constraint firstItem="nLb-Av-mTg" firstAttribute="centerY" secondItem="jbM-Wu-ZXX" secondAttribute="centerY" id="72j-4E-uCB"/>
                 <constraint firstItem="jbM-Wu-ZXX" firstAttribute="trailing" secondItem="BlC-2c-QJd" secondAttribute="trailing" constant="50" id="EyP-BW-pRw"/>
                 <constraint firstItem="BlC-2c-QJd" firstAttribute="centerX" secondItem="jbM-Wu-ZXX" secondAttribute="centerX" id="FeM-Ha-GjY"/>
                 <constraint firstItem="M0C-Wy-RS0" firstAttribute="trailing" secondItem="BlC-2c-QJd" secondAttribute="trailing" id="LOI-GY-iO2"/>
@@ -60,6 +65,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="jbM-Wu-ZXX"/>
             <connections>
+                <outlet property="loginActivityIndicator" destination="nLb-Av-mTg" id="CTr-NE-sjs"/>
                 <outlet property="loginButton" destination="Rqx-GH-gEq" id="d9j-jm-fyl"/>
                 <outlet property="loginTextField" destination="BlC-2c-QJd" id="Sat-zw-XbH"/>
             </connections>

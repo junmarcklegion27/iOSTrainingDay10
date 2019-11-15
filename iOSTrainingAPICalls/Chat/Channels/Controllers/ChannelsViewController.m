@@ -48,14 +48,14 @@
 }
 
 - (IBAction)onClickedAdd:(id)sender {
-    UIAlertController *addChannel = [UIAlertController alertControllerWithTitle:@"Add Channel" message:@"Input Channel" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *addChannel = [UIAlertController alertControllerWithTitle:@"Add Channel" message:@"Please Input Channel" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction *action) {
                                                          [self onClickedOK];
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {}];
     
     [addChannel addAction:okAction];
     [addChannel addTextFieldWithConfigurationHandler:^(UITextField *channelField) {

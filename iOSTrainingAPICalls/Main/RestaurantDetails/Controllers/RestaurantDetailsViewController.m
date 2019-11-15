@@ -35,6 +35,7 @@
     self.restaurantsDetailsView.restaurantNameLabel.text = self.restaurant.restaurantName;
     self.restaurantsDetailsView.restaurantCuisineLabel.text = [NSString stringWithFormat:@"Cuisine/s: %@", self.restaurant.restaurantCuisines];
     self.restaurantsDetailsView.restaurantRatingLabel.text = [NSString stringWithFormat:@"%.02f", self.restaurant.restaurantUserRating];
+    self.restaurantsDetailsView.restaurantRatingLabel.layer.cornerRadius = 10;
     self.restaurantsDetailsView.restaurantAddressLabel.text = [NSString stringWithFormat:@"Address: %@", self.restaurant.restaurantLocation];
     self.restaurantsDetailsView.restaurantTiming.text = self.restaurant.restaurantTiming;
     self.restaurantsDetailsView.averageCostForTwoLabel.text = [NSString stringWithFormat:@"Average cost for two: %.02f Php", self.restaurant.restaurantAverageCostForTwo];

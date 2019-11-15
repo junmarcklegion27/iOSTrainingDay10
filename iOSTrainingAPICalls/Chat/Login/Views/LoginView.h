@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *loginTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (strong) id<LoginDelegate> loginDelegate;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loginActivityIndicator;
 
 @end
 
