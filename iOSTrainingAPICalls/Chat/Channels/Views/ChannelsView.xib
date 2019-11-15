@@ -17,25 +17,29 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P5c-KI-HRb">
-                    <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                    <rect key="frame" x="8" y="60" width="398" height="676"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8x-Kt-mh9">
-                    <rect key="frame" x="0.0" y="20" width="414" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="16" y="28" width="382" height="24"/>
+                    <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="P5c-KI-HRb" firstAttribute="leading" secondItem="oY9-Mf-MDs" secondAttribute="leading" id="3DE-wz-c81"/>
-                <constraint firstItem="P5c-KI-HRb" firstAttribute="top" secondItem="L8x-Kt-mh9" secondAttribute="bottom" id="4PP-xh-6ij"/>
-                <constraint firstItem="L8x-Kt-mh9" firstAttribute="leading" secondItem="oY9-Mf-MDs" secondAttribute="leading" id="E4z-Xp-2HA"/>
-                <constraint firstItem="oY9-Mf-MDs" firstAttribute="trailing" secondItem="L8x-Kt-mh9" secondAttribute="trailing" id="YTw-Wf-Ur4"/>
+                <constraint firstItem="P5c-KI-HRb" firstAttribute="leading" secondItem="oY9-Mf-MDs" secondAttribute="leading" constant="8" id="3DE-wz-c81"/>
+                <constraint firstItem="P5c-KI-HRb" firstAttribute="top" secondItem="L8x-Kt-mh9" secondAttribute="bottom" constant="8" id="4PP-xh-6ij"/>
+                <constraint firstItem="L8x-Kt-mh9" firstAttribute="leading" secondItem="oY9-Mf-MDs" secondAttribute="leading" constant="16" id="E4z-Xp-2HA">
+                    <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                </constraint>
+                <constraint firstItem="oY9-Mf-MDs" firstAttribute="trailing" secondItem="L8x-Kt-mh9" secondAttribute="trailing" constant="16" id="YTw-Wf-Ur4">
+                    <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                </constraint>
                 <constraint firstItem="oY9-Mf-MDs" firstAttribute="bottom" secondItem="P5c-KI-HRb" secondAttribute="bottom" id="d1b-yD-bDi"/>
-                <constraint firstItem="oY9-Mf-MDs" firstAttribute="trailing" secondItem="P5c-KI-HRb" secondAttribute="trailing" id="gdR-Ze-ahw"/>
-                <constraint firstItem="L8x-Kt-mh9" firstAttribute="top" secondItem="oY9-Mf-MDs" secondAttribute="top" id="v41-c6-GV5"/>
+                <constraint firstItem="oY9-Mf-MDs" firstAttribute="trailing" secondItem="P5c-KI-HRb" secondAttribute="trailing" constant="8" id="gdR-Ze-ahw"/>
+                <constraint firstItem="L8x-Kt-mh9" firstAttribute="top" secondItem="oY9-Mf-MDs" secondAttribute="top" constant="8" id="v41-c6-GV5"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="oY9-Mf-MDs"/>
             <connections>

@@ -67,6 +67,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeCell"];
+    cell.cellContentView.layer.cornerRadius = 10;
+    cell.cellContentView.layer.masksToBounds = YES;
     Categories *category = self.categories[indexPath.row];
     cell.homeCellLabel.text = category.name;
     return cell;

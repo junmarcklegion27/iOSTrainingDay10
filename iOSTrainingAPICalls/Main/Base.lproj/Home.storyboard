@@ -10,11 +10,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Restaurants-->
         <scene sceneID="hIA-sa-aan">
             <objects>
                 <navigationController id="04x-AQ-bLs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="jEV-fp-anh"/>
+                    <tabBarItem key="tabBarItem" title="Restaurants" image="ic_resto" selectedImage="ic_resto_selected" id="jEV-fp-anh">
+                        <color key="badgeColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rQg-di-kVp">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -90,4 +92,8 @@
             <point key="canvasLocation" x="1666" y="80"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_resto" width="40" height="40"/>
+        <image name="ic_resto_selected" width="40" height="40"/>
+    </resources>
 </document>

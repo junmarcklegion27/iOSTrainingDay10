@@ -14,7 +14,7 @@
         <scene sceneID="16Y-S5-s50">
             <objects>
                 <navigationController id="lrJ-1p-tOH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" id="iNx-c4-wOJ"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="ic_chat" selectedImage="ic_chat_selected" id="iNx-c4-wOJ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="siH-Ep-hNC">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -56,4 +56,8 @@
             <point key="canvasLocation" x="953" y="111"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_chat" width="40" height="40"/>
+        <image name="ic_chat_selected" width="40" height="40"/>
+    </resources>
 </document>

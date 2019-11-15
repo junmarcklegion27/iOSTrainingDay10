@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *restaurantNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timingLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *imageActivityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *cellContentView;
 
 @end
 

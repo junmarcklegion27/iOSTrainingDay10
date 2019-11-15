@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSTrainingAPICalls/Chat/Login/Controllers/LoginViewController.m"
-            timestampString = "595414994.189167"
+            timestampString = "595470478.600273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-onClickedSignin"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSTrainingAPICalls/Chat/Channels/Controllers/ChannelsViewController.m"
-            timestampString = "595414994.189231"
+            timestampString = "595470478.600776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSTrainingAPICalls/Main/Home/Controllers/HomeViewController.m"
-            timestampString = "595414994.1895781"
+            timestampString = "595470478.601106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-locationManager:didUpdateLocations:"
             landmarkType = "7">
          </BreakpointContent>

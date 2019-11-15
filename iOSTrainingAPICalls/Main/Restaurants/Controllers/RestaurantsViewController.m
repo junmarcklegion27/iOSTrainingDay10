@@ -85,25 +85,27 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     RestaurantViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"restaurantCell" forIndexPath:indexPath];
+    cell.cellContentView.layer.cornerRadius = 5;
+    cell.cellContentView.layer.masksToBounds = YES;
     Restaurants *restaurant = self.restaurants[indexPath.row];
     cell.restaurantNameLabel.text = restaurant.restaurantName;
     cell.timingLabel.text = restaurant.restaurantTiming;
     [cell.imageActivityIndicator startAnimating];
-    UIImage *noImage = [UIImage imageNamed:@"ic_no_image"];
+    if ([restaurant.restaurantThumb isEqualToString:@""]) {
+        UIImage *noImage = [UIImage imageNamed:@"ic_no_image"];
+        cell.restaurantImageView.image = noImage;
+        [cell.imageActivityIndicator stopAnimating];
+        return cell;
+    }
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
     dispatch_async(queue, ^{
         NSURL *url = [NSURL URLWithString:restaurant.restaurantThumb];
         NSData * imageData = [NSData dataWithContentsOfURL: url];
-        if ([restaurant.restaurantThumb isEqualToString:@""]) {
-            cell.restaurantImageView.image = noImage;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIImage *image = [UIImage imageWithData:imageData];
+            cell.restaurantImageView.image = image;
             [cell.imageActivityIndicator stopAnimating];
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIImage *image = [UIImage imageWithData:imageData];
-                cell.restaurantImageView.image = image;
-                [cell.imageActivityIndicator stopAnimating];
-            });
-        }
+        });
     });
     return cell;
 }
@@ -112,18 +114,6 @@
     return [self.restaurants count];
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGRect screenBound  = [[UIScreen mainScreen] bounds];
-    CGSize screenSize = screenBound.size;
-    
-    CGFloat computedHeight = screenSize.height / 3;
-    CGFloat computedWidth = screenSize.width / 4;
-    if (screenSize.height < screenSize.width) {
-        computedHeight = screenSize.height;
-        computedWidth = screenSize.width / 4;
-    }
-    return CGSizeMake(computedWidth, computedHeight);
-}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Restaurants *restaurant = self.restaurants[indexPath.item];

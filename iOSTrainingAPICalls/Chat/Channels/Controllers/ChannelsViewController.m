@@ -38,7 +38,9 @@
     [self.view addSubview:self.channelsView];
     self.navigationItem.title = @"Channels";
     [self.channelsView.channelsTableView registerNib:[UINib nibWithNibName:@"ChannelTableViewCell" bundle:nil] forCellReuseIdentifier:@"channelCell"];
-    self.channelsView.usernameLabel.text = [[AppSettings shared] getUsername];
+    self.channelsView.usernameLabel.text = [NSString stringWithFormat:@"Username: %@", [[AppSettings shared] getUsername]];
+    self.channelsView.usernameLabel.layer.masksToBounds = YES;
+    self.channelsView.usernameLabel.layer.cornerRadius = 8.0;
     _channelDb = [FIRFirestore firestore];
     _channelRef = [_channelDb collectionWithPath:@"channel"];
     [self setUp];
@@ -190,6 +192,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChannelTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"channelCell"];
+    cell.cellContentView.layer.cornerRadius = 10;
+    cell.cellContentView.layer.masksToBounds = YES;
     Channel *channel = _channels[indexPath.row];
     cell.channelLabel.text = channel.channelName;
     return cell;
@@ -206,6 +210,7 @@
     } else {
         [self showViewController:chatVc sender:nil];
     }
+    [self.channelsView.channelsTableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -217,7 +222,6 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Channel *channel = _channels[indexPath.row];
         [[_channelRef documentWithPath:channel.channelId] deleteDocument];
-        
     }
 }
 

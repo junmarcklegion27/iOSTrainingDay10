@@ -12,44 +12,67 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="channelCell" id="KGk-i7-Jjw" customClass="ChannelTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="channelCell" rowHeight="50" id="KGk-i7-Jjw" customClass="ChannelTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="319" height="49.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_greater_than" translatesAutoresizingMaskIntoConstraints="NO" id="DMD-rU-1oB">
-                        <rect key="frame" x="273" y="0.0" width="47" height="44"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6O-bU-bfa">
+                        <rect key="frame" x="0.0" y="4" width="319" height="41.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J93-gF-nYq">
+                                <rect key="frame" x="62" y="0.0" width="207" height="41.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_greater_than" translatesAutoresizingMaskIntoConstraints="NO" id="DMD-rU-1oB">
+                                <rect key="frame" x="269" y="0.0" width="50" height="41.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="gD5-Kg-jWx"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_channel" translatesAutoresizingMaskIntoConstraints="NO" id="kP0-aJ-BsF">
+                                <rect key="frame" x="4" y="0.0" width="50" height="41.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="KxH-Sl-JNG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="47" id="gD5-Kg-jWx"/>
+                            <constraint firstItem="DMD-rU-1oB" firstAttribute="top" secondItem="I6O-bU-bfa" secondAttribute="top" id="0wL-FU-4XO"/>
+                            <constraint firstAttribute="bottom" secondItem="J93-gF-nYq" secondAttribute="bottom" id="1Tl-Di-Knv"/>
+                            <constraint firstItem="DMD-rU-1oB" firstAttribute="leading" secondItem="J93-gF-nYq" secondAttribute="trailing" id="6Na-AS-gz2"/>
+                            <constraint firstItem="J93-gF-nYq" firstAttribute="leading" secondItem="kP0-aJ-BsF" secondAttribute="trailing" constant="8" id="B91-AP-vTs"/>
+                            <constraint firstAttribute="bottom" secondItem="kP0-aJ-BsF" secondAttribute="bottom" id="Mbp-pP-gOD"/>
+                            <constraint firstItem="kP0-aJ-BsF" firstAttribute="top" secondItem="I6O-bU-bfa" secondAttribute="top" id="XqI-KS-SRP"/>
+                            <constraint firstAttribute="trailing" secondItem="DMD-rU-1oB" secondAttribute="trailing" id="baK-ay-Vgs"/>
+                            <constraint firstItem="kP0-aJ-BsF" firstAttribute="leading" secondItem="I6O-bU-bfa" secondAttribute="leading" constant="4" id="dsS-LZ-Vhj"/>
+                            <constraint firstItem="J93-gF-nYq" firstAttribute="top" secondItem="I6O-bU-bfa" secondAttribute="top" id="rh0-Nq-8St"/>
+                            <constraint firstAttribute="bottom" secondItem="DMD-rU-1oB" secondAttribute="bottom" id="t5H-AW-tTt"/>
                         </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J93-gF-nYq">
-                        <rect key="frame" x="16" y="0.0" width="257" height="43.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="DMD-rU-1oB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Avb-oZ-IWW"/>
-                    <constraint firstItem="J93-gF-nYq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Bx4-gZ-cy2"/>
-                    <constraint firstItem="J93-gF-nYq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KXf-oZ-HOy"/>
-                    <constraint firstAttribute="trailing" secondItem="DMD-rU-1oB" secondAttribute="trailing" id="Mdg-OU-v7O"/>
-                    <constraint firstAttribute="bottom" secondItem="DMD-rU-1oB" secondAttribute="bottom" constant="-0.5" id="Ncy-2B-kNW"/>
-                    <constraint firstItem="DMD-rU-1oB" firstAttribute="leading" secondItem="J93-gF-nYq" secondAttribute="trailing" id="WNv-tQ-5x9"/>
-                    <constraint firstAttribute="bottom" secondItem="J93-gF-nYq" secondAttribute="bottom" id="mro-hW-IOq"/>
+                    <constraint firstAttribute="bottom" secondItem="I6O-bU-bfa" secondAttribute="bottom" constant="4" id="8xP-NS-UgZ"/>
+                    <constraint firstItem="I6O-bU-bfa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dZB-lK-99B"/>
+                    <constraint firstItem="I6O-bU-bfa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="dqK-Be-fX3"/>
+                    <constraint firstAttribute="trailing" secondItem="I6O-bU-bfa" secondAttribute="trailing" id="zoM-ht-AnM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="cellContentView" destination="I6O-bU-bfa" id="xVG-zQ-ODR"/>
                 <outlet property="channelLabel" destination="J93-gF-nYq" id="8zM-u4-sRN"/>
             </connections>
-            <point key="canvasLocation" x="105.79710144927537" y="64.955357142857139"/>
+            <point key="canvasLocation" x="-70.28985507246378" y="27.455357142857142"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_greater_than" width="100" height="100"/>
+        <image name="ic_channel" width="50" height="50"/>
+        <image name="ic_greater_than" width="50" height="50"/>
     </resources>
 </document>

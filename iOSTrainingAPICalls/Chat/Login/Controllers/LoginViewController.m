@@ -19,20 +19,32 @@
     // Do any additional setup after loading the view.
     self.loginView = (LoginView *)[[[NSBundle mainBundle] loadNibNamed:@"LoginView" owner:self options:nil] objectAtIndex:0];
     self.loginView.frame = self.view.bounds;
-    self.loginView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
-    UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    self.loginView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     [self.view addSubview:self.loginView];
     self.loginView.loginDelegate = self;
     self.navigationItem.title = @"Sign-in";
 }
 
+- (void)showWithMessage:(NSString *)message {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action) {
+                                                     }];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)onClickedSignin {
     NSString *username = self.loginView.loginTextField.text;
     if ([username isEqualToString:@""]) {
+        [self showWithMessage:@"Please enter a username"];
         return;
     }
     [[AppSettings shared] setUsername:username];
-    [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRAuthDataResult *authResult, NSError *error) {
+    [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRAuthDataResult *authResult, NSError *error) {;
+        self.loginView.loginTextField.text = @"";
         [self performSegueWithIdentifier:@"loginToChannels" sender:[authResult user]];
     }];
 
